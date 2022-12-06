@@ -38,18 +38,18 @@ while True:
     print("Hello and welcome to contacts! Choose between the following command: LIST, INSERT,DELETE")
     command = input("What would you like to do?:")
 
-    if command == INSERT:
+    if command == 'INSERT':
         first_name = input("First name: ")
         last_name = input("Last name: ")
         title =  input("Title: ")
         organization = input("organization: ")
         add_contact()
 
-    elif command == DELETE:
+    elif command == 'DELETE':
         first_name = input("First name: ")
         last_name = input("Last name: ")
         delete_contact()
 
-    elif command == LIST:
+    elif command == 'LIST':
         list_data()
 

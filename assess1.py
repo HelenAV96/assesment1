@@ -8,31 +8,31 @@ def get_db_connection():
         password= 'musikklass96')
 
 
-def list_data():
-    con = get_db_connection()
-    cur = con.cursor()
+def list_data(conn):
+    conn = get_db_connection()
+    cur = conn.cursor()
     print(f"SELECT * FROM contacts;")
     cur.execute(f"SELECT * FROM contacts;")
     rows = cur.fetchall()
     cur.close()
-    con.close()
+    conn.close()
     return rows
 
-def add_contact(first_name, last_name, title, organization):
-    con = get_db_connection()
-    cur = con.cursor()
+def add_contact(conn, first_name, last_name, title, organization):
+    conn = get_db_connection()
+    cur = conn.cursor()
     cur.execute(f"INSERT INTO contacts VALUES ('{first_name}','{last_name}','{title}','{organization}');")
     cur.execute("COMMIT;")
     cur.close()
-    con.close()
+    conn.close()
 
-def delete_contact(first_name, last_name):
-    con = get_db_connection()
-    cur = con.cursor()
+def delete_contact(conn, first_name, last_name):
+    conn = get_db_connection()
+    cur = conn.cursor()
     cur.execute(f"DELETE FROM contacts WHERE first_name = '{first_name}' and last_name ='{last_name}';")
     cur.execute("COMMIT;")
     cur.close()
-    con.close()
+    conn.close()
 
 while True:
     print("Hello and welcome to contacts! Choose between the following command: LIST, INSERT,DELETE")
